@@ -223,4 +223,16 @@ public class SuffixTreeTest extends TestCase {
         assertTrue(ret.equals(exp));
     }
 
+
+    public void testWithUnicodeChars() {
+        GeneralizedSuffixTree in = new GeneralizedSuffixTree();
+
+        String ω = "ahahhaΩ";
+        in.put(ω, 1);
+
+        Collection<Integer> result = in.search(ω);
+        assertEquals(1, result.size());
+    }
+
+
 }
